@@ -2,13 +2,11 @@
 
 This wercker step just push your package to a [Docker](https://docs.docker.com/reference/commandline/cli/#push) registry.
 
-This step must be used with a wercker box built with [Docker Support](http://devcenter.wercker.com/articles/docker)
-
-
 ## Versions
 
 | Release date | Step version | Docker version |
 | -------------| -------------| ---------------|
+| 2014-02-16   | 1.0.3        | 1.3.1          |
 | 2014-12-01   | 1.0.2        | 1.3.1          |
 | 2014-11-28   | 1.0.1        | 1.3.1          |
 
@@ -31,7 +29,7 @@ private [tutum.co](https://www.tutum.co/) registry :
 deploy:
   steps:
     ...
-    - nhuray/docker-push:
+    - jakubriedl/docker-push:
         image: tutum.co/nhuray/myimage:${WERCKER_GIT_COMMIT:0:7}
         registry: tutum.co
         email: nicolas.huray@gmail.com

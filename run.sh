@@ -22,16 +22,8 @@ if [ -z "$WERCKER_DOCKER_PUSH_EMAIL" ]; then
   fail 'An email is required to login to the registry'
 fi
 
-
-type_exists() {
-  if [ $(type -P $1) ]; then
-    return 0
-  fi
-  return 1
-}
-
 # Check Docker is installed
-if ! type_exists 'docker'; then
+if ! docker -v; then
   fail 'Docker is not installed on this box.'
   info 'Please use a box with docker installed : http://devcenter.wercker.com/articles/docker'
   exit 1
